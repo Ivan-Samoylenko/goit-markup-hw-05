@@ -12,7 +12,7 @@
   /* colors */
   --accent-color: #2196f3;
   --primary-btn-hover-color: #188ce8;
-  --black-logo-color: #000000;
+  --black-primary-color: #000000;
   --white-primary-color: #ffffff;
   --white-primary-opacity-color: rgba(255, 255, 255, 0.6);
   --white-secondary-color: #f5f4fa;
@@ -24,6 +24,7 @@
   --portfolio-card-text-bcg-color: rgba(33, 150, 243, 0.9);
   --icon-primary-color: #afb1b8;
   --icon-secondary-color: rgba(255, 255, 255, 0.1);
+  --modal-btn-border-color: rgba(0, 0, 0, 0.1);
   /* gradient */
   --hero-background-gradient: rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4);
 }
@@ -121,7 +122,7 @@ svg {
   border-radius: 4px;
 
   background-color: var(--white-primary-color);
-  color: var(--black-logo-color);
+  color: var(--black-primary-color);
   cursor: pointer;
   outline: none;
 
@@ -164,6 +165,40 @@ svg {
   color: var(--white-primary-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
+/* modal button */
+.modal-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--modal-btn-border-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--black-primary-color);
+  background-color: var(--white-primary-color);
+  cursor: pointer;
+  outline: none;
+
+  transition: color var(--primary-animation);
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+  color: var(--accent-color);
+}
+
+.modal-btn > .icon {
+  fill: currentColor;
 }
 
 /* =========== */
@@ -215,7 +250,7 @@ svg {
 }
 
 .logo-header {
-  color: var(--black-logo-color);
+  color: var(--black-primary-color);
 
   transition: color var(--primary-animation);
 }
@@ -634,6 +669,40 @@ svg {
 }
 
 /* END section regular customers */
+
+/* modal with backdrop */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  pointer-events: all;
+  opacity: 0;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 528px;
+  height: 581px;
+
+  background-color: var(--white-primary-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  transform: translate(-50%, -50%);
+}
+
+/* END modal with backdrop */
 
 /* ============================ */
 /* END studio page main content */
