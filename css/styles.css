@@ -21,6 +21,7 @@
   --grey-footer-color: #2f303a;
   --header-border-color: #ececec;
   --portfolio-card-border-color: #eeeeee;
+  --portfolio-card-text-bcg-color: rgba(33, 150, 243, 0.9);
   --icon-primary-color: #afb1b8;
   --icon-secondary-color: rgba(255, 255, 255, 0.1);
   /* gradient */
@@ -270,6 +271,10 @@ svg {
   display: flex;
 }
 
+.site-nav > .item {
+  position: relative;
+}
+
 .site-nav > .item + .item {
   margin-left: 50px;
 }
@@ -293,6 +298,18 @@ svg {
   color: var(--accent-color);
 }
 
+.site-nav .link.current::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+
+  background-color: var(--accent-color);
+}
+
 /* contacts nav */
 .contacts-nav {
   display: flex;
@@ -308,6 +325,7 @@ svg {
   padding-top: 32px;
   padding-bottom: 32px;
 
+  white-space: nowrap;
   color: var(--grey-primary-color);
 
   transition: color var(--primary-animation);
@@ -657,8 +675,35 @@ svg {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.portfolio-list .link {
+.portfolio-card {
   display: block;
+}
+
+.portfolio-image-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-image-text {
+  position: absolute;
+  bottom: -100%;
+
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 63px 24px;
+
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--white-primary-color);
+  background-color: var(--portfolio-card-text-bcg-color);
+
+  transition: transform var(--primary-animation);
+}
+
+.portfolio-card:hover .portfolio-image-text {
+  transform: translateY(-100%);
 }
 
 .portfolio-list .image-caption {
